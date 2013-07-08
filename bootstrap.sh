@@ -7,21 +7,31 @@ apt-get update
 apt-get install -y git nodejs curl build-essential libssl-dev libcurl4-openssl-dev libsqlite3-dev zlib1g-dev libpcre3-dev libgeoip-dev checkinstall
 
 #install rbenv, ruby, rails and bundler 
-git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+#git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+#echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+#echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 #exec $SHELL -l
-mkdir -p ~/.rbenv/plugins
-git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-git clone git://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
-~/.rbenv/bin/rbenv install 2.0.0-p195
-~/.rbenv/bin/rbenv global 2.0.0-p195
-~/.rbenv/bin/rbenv rehash
-gem install bundler
-gem install rails
+#mkdir -p ~/.rbenv/plugins
+#git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+#git clone git://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+#~/.rbenv/bin/rbenv install 2.0.0-p195
+#~/.rbenv/bin/rbenv global 2.0.0-p195
+#~/.rbenv/bin/rbenv rehash
+
+#install ruby from source
+wget ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
+
+tar -xvf ruby-2.0.0-p247.tar.gz
+
+./configure  
+make
+make install
+
+gem install rails --no-ri --no-rdoc
+gem install bundler --no-ri --no-rdoc
 
 #install unicorn
-gem install unicorn
+gem install unicorn --no-ri --no-rdoc
 
 #sample app
 cd /usr/local
