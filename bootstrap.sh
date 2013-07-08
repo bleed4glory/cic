@@ -27,8 +27,7 @@ cd /usr/local
 rails new helloworld
 
 #configure unicorn
-cd helloworld
-mkdir config
+cd helloworld/config
 wget https://raw.github.com/bleed4glory/cic/master/unicorn.rb config
 
 mkdir /etc/unicorn
