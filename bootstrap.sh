@@ -16,7 +16,7 @@ git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-buil
 git clone git://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
 $HOME/.rbenv/bin/rbenv install 2.0.0-p195
 $HOME/.rbenv/bin/rbenv global 2.0.0-p195
-gem install bundler
+gem install bundler --no-rdoc --no-ri
 gem install rails --no-rdoc --no-ri
 
 #install unicorn
@@ -24,7 +24,7 @@ gem install unicorn
 
 #sample app
 cd /usr/local
-rails new helloworld
+git clone git://github.com/bleed4glory/helloworld.git /usr/local
 
 #configure unicorn
 mkdir helloworld/tmp/pids
