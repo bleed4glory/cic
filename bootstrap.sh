@@ -11,7 +11,6 @@ apt-get update
 apt-get install -y git nodejs curl build-essential libssl-dev libcurl4-openssl-dev libsqlite3-dev zlib1g-dev libpcre3-dev libgeoip-dev checkinstall
 
 echo "install rbenv & ruby"
-sleep 2
 git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
@@ -25,17 +24,7 @@ rbenv global 2.0.0-p195
 rbenv rehash
 ruby -v
 
-#install ruby from source
-#wget ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
-
-#tar -xvf ruby-2.0.0-p247.tar.gz
-#cd ruby-2.0.0-p247
-#./configure  
-#make
-#make install
-
 echo "install rails and bundler"
-sleep 2
 gem install rails --no-ri --no-rdoc
 gem install bundler --no-ri --no-rdoc
 
@@ -64,3 +53,5 @@ chmod 755 /etc/init.d/unicorn_init
 
 #start unicorn
 /etc/init.d/unicorn_init start
+
+echo "ALL DONE! ROCK AND ROLL SON!"
