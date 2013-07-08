@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+#commands to allow source ~/.bashrc to be used in non-interactive session
+chmod a+x ~/.bashrc
+PS1='$ '
+
 #update apt-get
 apt-get update
 
@@ -12,13 +16,13 @@ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 #exec $SHELL -l
-source ~./bashrc
+source ~/.bashrc
 mkdir -p ~/.rbenv/plugins
 git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone git://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
-~/.rbenv/bin/rbenv install 2.0.0-p195
-~/.rbenv/bin/rbenv global 2.0.0-p195
-~/.rbenv/bin/rbenv rehash
+rbenv install 2.0.0-p195
+rbenv global 2.0.0-p195
+rbenv rehash
 ruby -v
 
 #install ruby from source
@@ -48,9 +52,9 @@ mkdir helloworld/tmp/pids
 cd helloworld/config
 wget https://raw.github.com/bleed4glory/cic/master/unicorn.rb
 
-#mkdir /etc/unicorn
-#cd /etc/unicorn
-#wget https://raw.github.com/bleed4glory/cic/master/helloworld.conf
+mkdir /etc/unicorn
+cd /etc/unicorn
+wget https://raw.github.com/bleed4glory/cic/master/helloworld.conf
 
 cd /etc/init.d
 wget https://raw.github.com/bleed4glory/cic/master/unicorn_init
