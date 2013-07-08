@@ -14,10 +14,11 @@ echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 mkdir -p ~/.rbenv/plugins
 git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 git clone git://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
-$HOME/.rbenv/bin/rbenv install 2.0.0-p195
-$HOME/.rbenv/bin/rbenv global 2.0.0-p195
-gem install bundler --no-rdoc --no-ri
-gem install rails --no-rdoc --no-ri
+~/.rbenv/bin/rbenv install 2.0.0-p195
+~/.rbenv/bin/rbenv global 2.0.0-p195
+~/.rbenv/bin/rbenv rehash
+gem install bundler
+gem install rails
 
 #install unicorn
 gem install unicorn
@@ -32,9 +33,9 @@ mkdir helloworld/tmp/pids
 cd helloworld/config
 wget https://raw.github.com/bleed4glory/cic/master/unicorn.rb
 
-mkdir /etc/unicorn
-cd /etc/unicorn
-wget https://raw.github.com/bleed4glory/cic/master/helloworld.conf
+#mkdir /etc/unicorn
+#cd /etc/unicorn
+#wget https://raw.github.com/bleed4glory/cic/master/helloworld.conf
 
 cd /etc/init.d
 wget https://raw.github.com/bleed4glory/cic/master/unicorn_init
