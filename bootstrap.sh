@@ -24,9 +24,10 @@ gem install unicorn
 
 #sample app
 cd /usr/local
-git clone git://github.com/bleed4glory/helloworld.git /usr/local
+git clone git://github.com/bleed4glory/helloworld.git helloworld
 
 #configure unicorn
+mkdir helloworld/tmp
 mkdir helloworld/tmp/pids
 cd helloworld/config
 wget https://raw.github.com/bleed4glory/cic/master/unicorn.rb
