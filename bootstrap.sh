@@ -54,4 +54,29 @@ chmod 755 /etc/init.d/unicorn_init
 #start unicorn
 /etc/init.d/unicorn_init start
 
+#install nginx
+wget http://nginx.org/download/nginx-1.4.1.tar.gz
+tar -xzf nginx-1.4.1.tar.gz 
+cd nginx-1.4.1
+./configure --with-http_ssl_module --with-http_geoip_module
+make && make install
+cd /usr/local/nginx/conf
+mv /usr/local/helloworld/config/nginx.conf /usr/local/nginx/conf/nginx.conf
+mv /usr/local/helloworld/config/nginx_init /etc/init.d/nginx_init
+cd /etc/init.d
+chmod 755 nginx_init
+/etc/init.d/nginx_init start
+
+#install and setup postgresql
+apt-get update
+apt-get -y install python-software-properties
+add-apt-repository ppa:pitti/postgresql
+apt-get update
+
+apt-get -y install postgresql-9.2 postgresql-client-9.2 postgresql-contrib-9.2
+apt-get -y install postgresql-server-dev-9.2 libpq-dev
+
+sudo -u postgres psql -c "alter user postgres with password 'postgres';"
+
+
 echo "ALL DONE! ROCK AND ROLL SON!"
